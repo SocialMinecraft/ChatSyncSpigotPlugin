@@ -1,6 +1,5 @@
 package club.somc.chatsync;
 
-import club.somc.protos.MinecraftChat;
 import club.somc.protos.MinecraftMessageSent;
 import io.nats.client.Connection;
 import org.bukkit.entity.Player;
@@ -31,6 +30,5 @@ public class ChatEventsListener implements Listener {
                 .build();
 
         nc.publish("minecraft.chat.message_sent", msg.toByteArray());
-        //nc.publish("minecraft.chat.message_sent", "Hi".getBytes());
     }
 }
