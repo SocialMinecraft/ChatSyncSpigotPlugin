@@ -1,6 +1,7 @@
 package club.somc.chatsync;
 
 import club.somc.protos.MinecraftChat;
+import club.somc.protos.MinecraftMessageSent;
 import com.google.protobuf.InvalidProtocolBufferException;
 import io.nats.client.Connection;
 import io.nats.client.Dispatcher;
@@ -37,8 +38,8 @@ public class ChatSyncPlugin extends JavaPlugin {
             Bukkit.getScheduler().runTask(this, () -> {
                 try {
                     if (msg.getSubject().equals("minecraft.chat.message_sent")) {
-                        MinecraftChat.MinecraftMessageSent event = null;
-                        event = MinecraftChat.MinecraftMessageSent.parseFrom(msg.getData());
+                        MinecraftMessageSent event = null;
+                        event = MinecraftMessageSent.parseFrom(msg.getData());
                         if (!event.getServerName().equals(serverName))
                             Bukkit.broadcastMessage("<" + event.getPlayerName() + "> " +
                                     event.getMessage());
