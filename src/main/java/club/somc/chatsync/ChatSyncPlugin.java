@@ -65,12 +65,14 @@ public class ChatSyncPlugin extends JavaPlugin {
                                     " left server " + event.getServerName());
                     }
 
-                    if (msg.getSubject().equals("minecraft.player.death")) {
+                    if (msg.getSubject().equals("minecraft.player.died")) {
                         MinecraftPlayerDied event = null;
                         event = MinecraftPlayerDied.parseFrom(msg.getData());
                         if (!event.getServerName().equals(serverName))
-                            Bukkit.broadcastMessage(ChatColor.RED + event.getPlayerName() +
-                                    " died: " + event.getDeathMessage());
+                            //Bukkit.broadcastMessage(ChatColor.RED + event.getPlayerName() +
+                             //       " died: " + event.getDeathMessage());
+
+                            Bukkit.broadcastMessage(ChatColor.RED + event.getDeathMessage());
                     }
                 } catch (InvalidProtocolBufferException e) {
                     throw new RuntimeException(e);
