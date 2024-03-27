@@ -1,0 +1,4 @@
+name: ChatSync
+version: 1.0
+main: club.somc.chatsync.ChatSyncPlugin
+api-version: 1.20

@@ -1,0 +1,2 @@
+serverName: ""
+natsUrl: "nats://nats:4222"
